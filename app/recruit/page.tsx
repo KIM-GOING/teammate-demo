@@ -1,6 +1,10 @@
 import Link from "next/link";
 import { supabase } from "@/lib/supabase";
 
+// 이 페이지는 Supabase에서 최신 구인글을 매번 불러와야 합니다.
+// Vercel이 정적 페이지처럼 캐싱하지 않도록 강제로 동적 렌더링을 설정합니다.
+export const dynamic = "force-dynamic";
+
 export default async function RecruitPage() {
   /*
     Supabase의 recruit_posts 테이블에서 구인글 데이터를 가져옵니다.
